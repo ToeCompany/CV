@@ -7,6 +7,13 @@ const { MessageMedia } = require('whatsapp-web.js');
 
 const media = 'https://media.giphy.com/media/iejCyfUFYz6VHN4VVC/giphy.gif';
 
+const retreat = 'The Solid Ground Winter Retreat Registration is now available! In Feb, we\'ll be heading up to Zephyr Cove in Lake Tahoe for a weekend full of worship, fellowship, and fun! Lord willing, our theme will be "Praying the Bible." Pastor Paul, Luke, and Ivan will be teaching and guiding discussion on the power and importance of prayer. You won\'t want to miss it! Registration for the weekend is $120, but if the price is a hindrance to your attendance, please let us know. We want everyone to participate!  Registration is available through the link below or on the Grace Fair Oaks App. ';
+const retreatLink = 'https://gracefairoaks.us2.list-manage.com/track/click?u=16f81755db883ee0a7afa3eb8&id=f6565a9190&e=82daee9bde';
+
+const solidLocation = '7pm at 8610 Kingdale Ave, Orangevale';
+
+const ugm = 'Solid Ground will be going to UGM on Feb 7, 2023 at 7:10pm. The address is 400 Bannon Street Sacramento, CA 95811. Please contact Paul if you would like to make it and/or need ride arragements';
+
 const gospel = 'https://gracefairoaks.com/what-is-the-gospel';
 let verse = '';
 let webApiUrl = 'https://api.esv.org/v3/passage/text/';
@@ -54,8 +61,15 @@ client.on('message', message => {
       client.sendMessage(message.from, gospel);
   }else if(message.body.includes('should I go to group today?')){
     client.sendMessage(message.from, media);
+  }else if(message.body.includes('retreat info')){
+    client.sendMessage(message.from, retreat);
+    client.sendMessage(message.from, retreatLink);
+  }else if(message.body.includes('UGM')){
+    client.sendMessage(message.from, ugm);
+  }else if(message.body.includes('location')){
+    client.sendMessage(message.from, solidLocation);
   }
-  //client.l
+  message.react('😎');
   }
 });
  
